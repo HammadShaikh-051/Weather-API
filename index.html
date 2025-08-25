@@ -1,21 +1,110 @@
 <!doctype html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
+
 <body class="flex items-center justify-center bg-[url('/Img/bg.jpg')] w-full h-dvh bg-cover bg-center backdrop-blur-sm">
-    <main id="mainContainer" class="w-xs h-3/4 z-10 bg-linear-to-b from-gray-300 to-gray-700 rounded-2xl backdrop-blur-sm opacity-50 p-5">
-        <header id="inputContainer" class="relative">
-            <input type="text" placeholder="Search City" id="cityInput" class="w-full p-3 rounded-4xl border-2 border-transparent outline-blue-300 outline-offset-3 bg-gray-400 text-white font-semibold transform-border">
-            <button id="searchBtn" class="absolute right-4 top-1/2 -translate-y-2/5 cursor-pointer">
+    <main id="mainContainer"
+        class="w-xs h-3/4 z-10 bg-linear-to-b from-gray-300 to-gray-800 rounded-2xl backdrop-blur-sm opacity-50 p-5">
+        <header id="inputContainer" class="relative mb-7">
+            <input type="text" placeholder="Search City" id="cityInput"
+                class="w-full p-3 rounded-4xl border-2 border-transparent outline-blue-300 outline-offset-3 bg-gray-500 text-white font-semibold transform-border pr-12">
+            <button id="searchBtn" class="absolute right-4 top-1/2 -translate-y-2/5 cursor-pointer flex" type="button">
                 <span class="material-symbols-outlined">
                     search
                 </span>
             </button>
         </header>
+        <section id="weatherInfo" class="font-semibold flex flex-col gap-7 hidden">
+            <div id="locationDateContainer" class="flex justify-between items-center">
+                <div id="location" class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined">
+                        location_on
+                    </span>
+                    <h4 id="countryText">Jakarta</h4>
+                </div>
+                <h5 id="currentDateText">Tue, 08 Aug</h5>
+            </div>
+            <div id="weatherSummaryContainer" class="flex justify-between items-center">
+                <img src="Img/weather/clouds.svg" id="weatherSummaryImg" class="w-[120px] h-[120px]">
+                <div id="weatherSummaryInfo" class="text-end">
+                    <h1 id="tempText">29 °C</h1>
+                    <h3 id="conditionText">Clouds</h3>
+                </div>
+            </div>
+
+            <div id="weatherConditionsContainer" class="flex justify-between">
+                <div id="conditionItem" class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-3xl">
+                        water_drop
+                    </span>
+                    <div id="conditionInfo">
+                        <h5>Humidity</h5>
+                        <h5 id="humidityValueText">55%</h5>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined">
+                        air
+                    </span>
+                    <div>
+                        <h5>Wind Speed</h5>
+                        <h5 id="windValueText">2 m/s</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div id="forecastItemsContainer" class="flex gap-2 overflow-x-auto overflow-y-hidden text-[14px] pb-3">
+                <div id="forecastItem" class="min-w-20  bg-gray-500 flex flex-col gap-1.5 p-2.5 items-center rounded-xl transition-colors duration-300 ease-in-out hover:bg-gray-400">
+                    <h5 id="forecastItemDate">13 Aug</h5>
+                    <img src="Img/weather/thunderstorm.svg" id="forecastItemImage" class="w-12 h-12">
+                    <h5 id="forecastItemTemp">29 °C</h5>
+                </div>
+                <div id="forecastItem" class="min-w-20  bg-gray-500 flex flex-col gap-1.5 p-2.5 items-center rounded-xl transition-colors duration-300 ease-in-out hover:bg-gray-400">
+                    <h5 id="forecastItemDate">13 Aug</h5>
+                    <img src="Img/weather/thunderstorm.svg" id="forecastItemImage" class="w-12 h-12">
+                    <h5 id="forecastItemTemp">29 °C</h5>
+                </div>
+                <div id="forecastItem" class="min-w-20  bg-gray-500 flex flex-col gap-1.5 p-2.5 items-center rounded-xl transition-colors duration-300 ease-in-out hover:bg-gray-400">
+                    <h5 id="forecastItemDate">13 Aug</h5>
+                    <img src="Img/weather/thunderstorm.svg" id="forecastItemImage" class="w-12 h-12">
+                    <h5 id="forecastItemTemp">29 °C</h5>
+                </div>
+                <div id="forecastItem" class="min-w-20  bg-gray-500 flex flex-col gap-1.5 p-2.5 items-center rounded-xl transition-colors duration-300 ease-in-out hover:bg-gray-400">
+                    <h5 id="forecastItemDate">13 Aug</h5>
+                    <img src="Img/weather/thunderstorm.svg" id="forecastItemImage" class="w-12 h-12">
+                    <h5 id="forecastItemTemp">29 °C</h5>
+                </div>
+            </div>
+        </section>
+
+        <section id="searchCity" class="flex flex-col items-center">
+            <img id="messageImg" src="Img/message/search-city.png" class="mb-4">
+            <div class="flex flex-col items-center text-center">
+                <h1>Search City</h1>
+                <h4 id="regularText">
+                    Find out the weather conditions of the city
+                </h4>
+            </div>
+        </section>
+
+        <section id="notFound" class="flex flex-col items-center mt-4 hidden">
+            <img id="notFoundImg" src="Img/message/not-found.png" class="mb-4">
+            <div class="flex flex-col items-center text-center">
+                <h1>Search City</h1>
+                <h4 id="regularText">
+                    Find out the weather conditions of the city
+                </h4>
+            </div>
+        </section>
     </main>
+    <script src="script.js"></script>
 </body>
+
 </html>
